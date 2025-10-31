@@ -1,4 +1,3 @@
-
 public abstract class DecoradorDispositivo implements Dispositivo {
     protected Dispositivo dispositivo;
 
@@ -19,5 +18,12 @@ public abstract class DecoradorDispositivo implements Dispositivo {
     @Override
     public String obtenerEstado() {
         return dispositivo.obtenerEstado();
+    }
+
+    public String getNombre() {
+        if (dispositivo instanceof DispositivoBase) {
+            return ((DispositivoBase) dispositivo).getNombre();
+        }
+        return "Dispositivo decorado";
     }
 }

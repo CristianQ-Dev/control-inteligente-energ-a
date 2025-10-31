@@ -13,8 +13,12 @@ public class AhorroEnergetico extends DecoradorDispositivo {
     public void encender() {
         System.out.println("[AhorroEnergetico] Encendiendo dispositivo...");
         dispositivo.encender();
-        if (modoAhorro) System.out.println("Modo ahorro activado. Consumo reducido.");
-        consumo += 0.75;
+        if (modoAhorro) {
+            System.out.println("Modo ahorro activado. Consumo reducido.");
+            consumo += 0.5;
+        } else {
+            consumo += 1.0;
+        }
     }
 
     @Override

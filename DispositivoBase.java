@@ -1,4 +1,3 @@
-
 public class DispositivoBase implements Dispositivo {
     private String nombre;
     private boolean activo;
@@ -10,23 +9,34 @@ public class DispositivoBase implements Dispositivo {
 
     @Override
     public void encender() {
-        activo = true;
-        System.out.println(nombre + " encendido.");
+        if (!activo) {
+            activo = true;
+            System.out.println("[DispositivoBase] " + nombre + " encendido.");
+        } else {
+            System.out.println("[DispositivoBase] " + nombre + " ya está encendido.");
+        }
     }
 
     @Override
     public void apagar() {
-        activo = false;
-        System.out.println(nombre + " apagado.");
+        if (activo) {
+            activo = false;
+            System.out.println("[DispositivoBase] " + nombre + " apagado.");
+        } else {
+            System.out.println("[DispositivoBase] " + nombre + " ya está apagado.");
+        }
     }
 
     @Override
     public String obtenerEstado() {
-        return activo ? "ENCENDIDO" : "APAGADO";
+        return "[DispositivoBase] " + nombre + " está " + (activo ? "ENCENDIDO" : "APAGADO");
     }
 
     public String getNombre() {
         return nombre;
     }
-}
 
+    public boolean estaActivo() {
+        return activo;
+    }
+}
